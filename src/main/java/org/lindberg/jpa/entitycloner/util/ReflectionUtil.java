@@ -6,8 +6,8 @@ import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.apache.commons.lang.StringUtils;
-import org.apache.commons.lang.reflect.ConstructorUtils;
+import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.reflect.ConstructorUtils;
 
 /**
  * Utility class for reflection operations. 
@@ -42,11 +42,11 @@ public class ReflectionUtil {
 	}
 	
 	
-	public static Method getSetterMethod(Object target,String methodOrPropertyName,Class paramClassSet,boolean findInSuperClasses){
+	public static Method getSetterMethod(Object target,String methodOrPropertyName,Class<?> paramClassSet,boolean findInSuperClasses){
 		return getSetterMethod(target.getClass(), methodOrPropertyName, paramClassSet,findInSuperClasses);
 	}
 	
-	public static Method getSetterMethod(Class clazz,String methodOrPropertyName,Class paramClassSet,boolean findInSuperClasses){
+	public static Method getSetterMethod(Class<?> clazz,String methodOrPropertyName,Class<?> paramClassSet,boolean findInSuperClasses){
 		methodOrPropertyName = getSetterMethodName(methodOrPropertyName);
 		
 		try {
@@ -84,7 +84,7 @@ public class ReflectionUtil {
      * @param findInSuperClasses true whether to load the inherited fields and false otherwise.
      * @param setFieldsAsAccessible true if the fields should be setted as accessible.
      */
-    public static void loadFields(Class clazz, List<Field> fieldList, boolean findInSuperClasses,
+    public static void loadFields(Class<?> clazz, List<Field> fieldList, boolean findInSuperClasses,
         boolean setFieldsAsAccessible) {
         if (clazz.equals(Object.class))
             return;
